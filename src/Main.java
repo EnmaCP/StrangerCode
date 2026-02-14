@@ -39,5 +39,34 @@ public class Main {
             }
         }
 
+        Hopper h = new Hopper("Hopper",42,60,90);
+        h.receiveDamage(60);
+        System.out.println("Alive =" + h.isAlive());
+
+        Hopper h1 = new Hopper("Hopper",42,60,90);
+        Hopper h2 = new Hopper("Hopper",42,10,20);
+        System.out.println("Equals ="+ h1.equals(h2));
+
+        Demogorgon boss = new Demogorgon("Demogorgon",0,70,70);
+        ArrayList<Fighter> newParty = new ArrayList<>();
+        newParty.add(new Eleven("Eleven", 14, 40, 80));
+        newParty.add(new Steve("Steve", 17, 45, 60));
+        newParty.add(new Hopper("Hopper", 42, 60, 90));
+
+        while(boss.isAlive()){ //bucle mientras el boss esta vivo
+            for(Fighter f: newParty){
+                int dmg = f.attack();
+                boss.receiveDamage(dmg);
+                System.out.println(f.getName() + " hits boss dmg = "+dmg+" hp boss = " +boss.getHp());
+
+                if(!boss.isAlive()){
+                    System.out.println("Portal closed!");
+                    break;
+                }
+            }
+        }
+
+
+
     }
 }

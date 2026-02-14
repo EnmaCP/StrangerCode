@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class CharacterBase {
     protected String name;
     protected int age;
@@ -9,9 +11,11 @@ public abstract class CharacterBase {
         this.hp = hp;
     }
     public void receiveDamage(int damage) {
-        if (damage < hp) {
-            this.hp -= damage;
+        this.hp -= damage;
+        if(hp < 0) {
+            hp = 0;
         }
+
     }
 
     public String getName() {
@@ -36,6 +40,14 @@ public abstract class CharacterBase {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CharacterBase that = (CharacterBase) o;
+        return age == that.age && Objects.equals(name, that.name);
     }
 
 

@@ -17,6 +17,6 @@ public class Demogorgon extends CharacterBase implements Fighter {
 
     @Override
     public boolean isAlive() {
-        return false;
+        return hp > 0;
     }
 }

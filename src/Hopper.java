@@ -27,7 +27,7 @@ public class Hopper extends CharacterBase implements Fighter{
 
     @Override
     public int attack() {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -37,6 +37,6 @@ public class Hopper extends CharacterBase implements Fighter{
 
     @Override
     public boolean isAlive() {
-        return false;
+        return hp > 0 ;
     }
 }
