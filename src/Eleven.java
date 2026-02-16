@@ -5,6 +5,10 @@ public class Eleven extends CharacterBase implements Fighter {
         this.ammo = ammo;
     }
 
+    public Eleven(String name, int age, int hp, String idPrimaryKey, String faction, int level) {
+        super(name, age, hp, idPrimaryKey, faction, level);
+    }
+
     public void useTelekinesis(){
         System.out.println("Eleven uses telekinesis!");
     }
@@ -21,16 +25,27 @@ public class Eleven extends CharacterBase implements Fighter {
 
     @Override
     public boolean isAlive() {
-        return false;
+        return hp > 0;
     }
 
     @Override
     public String toString() {
         return "Eleven{" +
-                "ammo=" + ammo +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                "name='" + name + '\'' +
                 ", hp=" + hp +
+                ", idPrimaryKey='" + idPrimaryKey + '\'' +
+                ", faction='" + faction + '\'' +
+                ", level=" + level +
                 '}';
+    }
+
+    @Override
+    public String getIdPrimaryKey() {
+        return "";
+    }
+
+    @Override
+    public String getRole() {
+        return "HERO";
     }
 }

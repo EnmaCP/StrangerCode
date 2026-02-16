@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Fighter> party = new ArrayList<>();
+        /*ArrayList<Fighter> party = new ArrayList<>();
         party.add(new Eleven("Eleven",14,40,80));
         party.add(new Steve("Steve",17,45,60));
         party.add(new Hopper("Hopper",42,60,90));
@@ -64,7 +65,70 @@ public class Main {
                     break;
                 }
             }
+        }*/
+
+        /*HashMap<String,CharacterBase> ordPerso = new HashMap<>(); //lista doble
+        ArrayList<CharacterBase> lstSencilla = new ArrayList<>(); //lista sencilla
+
+        Eleven elevenHashMap = new Eleven("Eleven",14,40,80);
+        Steve steveHashMap = new Steve("Steve",17,45,60);
+        Hopper hopperHashMap = new Hopper("Hopper",42,60,90);
+
+        //ordPerso.put(elevenHashMap.earnIdPrimaryKey(), elevenHashMap);
+        //ordPerso.put(steveHashMap.earnIdPrimaryKey(), steveHashMap);
+        //ordPerso.put(hopperHashMap.earnIdPrimaryKey(), hopperHashMap);
+
+        // Usamos lstSencilla para evitar advertencias y demostrar su uso
+        lstSencilla.add(elevenHashMap);
+        System.out.println("lstSencilla size = " + lstSencilla.size());
+
+        // Consultamos ordPerso (imprimimos claves) para evitar la advertencia de 'actualizado pero nunca consultado'
+        System.out.println("ordPerso keys: " + ordPerso.keySet());*/
+
+
+        Eleven eleven = new Eleven("Eleven", 14,  80,"132432T", "Hawkins",30);
+        System.out.println(eleven + " rol: " + eleven.getRole());
+        Hopper hopper = new Hopper("Hopper", 42, 90, "57898P", "Police", 60);
+        System.out.println(hopper + " rol: " +hopper.getRole());
+        Steve steve = new Steve("Steve", 15, 50, "384789J", "Hawkins", 30);
+
+        ArrayList<Fighter> heros = new ArrayList<>();
+        heros.add(eleven);
+        heros.add(hopper);
+        heros.add(steve);
+
+        for(Fighter f: heros){
+            CharacterBase personaje = (CharacterBase)f;
+            System.out.println(f.getName() + " " + f.attack() + " "+ ((CharacterBase) f).getRole());
+
         }
+
+        for(Fighter f: heros){
+            CharacterBase personaje = (CharacterBase)f;
+            f.battleCry();
+            if( f instanceof Eleven){
+                ((Eleven) f).useTelekinesis();
+            }
+            if(f instanceof Steve){
+                ((Steve)f).swingsBat();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

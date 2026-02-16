@@ -1,15 +1,30 @@
 import java.util.Objects;
+import java.util.UUID;
 
-public abstract class CharacterBase {
+public abstract class CharacterBase implements Identificable {
     protected String name;
     protected int age;
     protected int hp;
+    protected String idPrimaryKey;
+    protected String faction;
+    protected int level;
 
     public CharacterBase(String name, int age, int hp) {
         this.name = name;
         this.age = age;
         this.hp = hp;
+        //this.id = UUID.randomUUID().toString();
     }
+
+    public CharacterBase(String name, int age, int hp, String idPrimaryKey, String faction, int level) {
+        this.name = name;
+        this.age = age;
+        this.hp = hp;
+        this.idPrimaryKey = idPrimaryKey;
+        this.faction = faction;
+        this.level = level;
+    }
+
     public void receiveDamage(int damage) {
         this.hp -= damage;
         if(hp < 0) {
@@ -17,6 +32,7 @@ public abstract class CharacterBase {
         }
 
     }
+
 
     public String getName() {
         return name;
